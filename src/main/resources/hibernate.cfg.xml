@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0
+        //EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database Connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/db1</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <property name="hbm2ddl.auto">create</property>  <!--that means you have to create new table or update table for every connection-->
+
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">5</property>
+
+        <!-- Select our SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Echo the SQL to stdout -->
+        <property name="show_sql">true</property>  <!--means to see sql query executed by hibernate -->
+
+        <!-- Set the current session context -->
+        <property name="current_session_context_class">thread</property>
+
+        <mapping class="Entity.Category"></mapping>
+        <mapping class="Entity.Catalog"></mapping>
+    </session-factory>
+</hibernate-configuration>
